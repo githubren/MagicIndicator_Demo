@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <net.lucode.hackware.magicindicator.MagicIndicator
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/tablayout"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tablayout"
+            android:id="@+id/viewPager"/>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

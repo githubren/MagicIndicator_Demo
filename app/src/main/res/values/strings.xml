@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MagicIndicator_Demo</string>
+
+    <string-array name="tab_title">
+        <item name="tab_title_first">标题一</item>
+        <item name="tab_title_second">标题二</item>
+        <item name="tab_title_third">标题三</item>
+        <item name="tab_title_fourth">标题四</item>
+        <item name="tab_title_fifth">标题五</item>
+        <item name="tab_title_sixth">标题六</item>
+    </string-array>
+
+    <string name="fragment_first_tv">第一个Fragment</string>
+    <string name="fragment_second_tv">第二个Fragment</string>
+    <string name="fragment_third_tv">第三个Fragment</string>
+    <string name="fragment_fourth_tv">第四个Fragment</string>
+    <string name="fragment_fifth_tv">第五个Fragment</string>
+    <string name="fragment_sixth_tv">第六个Fragment</string>
+</resources>
