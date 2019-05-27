@@ -51,12 +51,15 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setFragments() {
         fragments = new ArrayList<>();
-        fragments.add(new FragmentInfo(new FirstFragment()));
-        fragments.add(new FragmentInfo(new SecondFragment()));
-        fragments.add(new FragmentInfo(new ThirdFragment()));
-        fragments.add(new FragmentInfo(new FourthFragment()));
-        fragments.add(new FragmentInfo(new FifthFragment()));
-        fragments.add(new FragmentInfo(new SixthFragment()));
+        for (String title : titles){
+            fragments.add(new FragmentInfo(new FirstFragment()));
+        }
+//        fragments.add(new FragmentInfo(new FirstFragment()));
+//        fragments.add(new FragmentInfo(new SecondFragment()));
+//        fragments.add(new FragmentInfo(new ThirdFragment()));
+//        fragments.add(new FragmentInfo(new FourthFragment()));
+//        fragments.add(new FragmentInfo(new FifthFragment()));
+//        fragments.add(new FragmentInfo(new SixthFragment()));
     }
 
     /**

@@ -4,9 +4,12 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
+import net.lucode.hackware.magicindicator.buildins.UIUtil;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
@@ -29,7 +32,9 @@ public class MagicIndicatorHelper {
     public static MagicIndicatorHelper getInstance(){
         if (magicIndicatorHelper ==null){
             synchronized (MagicIndicatorHelper.class){
-                magicIndicatorHelper = new MagicIndicatorHelper();
+                if (magicIndicatorHelper == null){
+                    magicIndicatorHelper = new MagicIndicatorHelper();
+                }
             }
         }
         return magicIndicatorHelper;
@@ -95,8 +100,23 @@ public class MagicIndicatorHelper {
             public IPagerIndicator getIndicator(Context context) {
                 //创建一个直线型指示器
                 LinePagerIndicator linePagerIndicator = new LinePagerIndicator(context);
+                //设置指示器模型
+                // MODE_MATCH_EDGE:相当于布局文件中的match parent 指示器的宽度充满整个分配给他的空间
+                // MODE_WRAP_CONTENT:指示器的宽度和标题文字的宽度一致
+                // MODE_EXACTLY:根据自己设定的宽度值呈现 相当于wrap content
+                linePagerIndicator.setMode(LinePagerIndicator.MODE_EXACTLY);
                 //设置指示器颜色
                 linePagerIndicator.setColors(Color.WHITE);
+                //对指示器的形状进行配置
+                linePagerIndicator.setYOffset(UIUtil.dip2px(context,2.0f));//指示器相对于底部的偏移量
+                linePagerIndicator.setLineHeight(UIUtil.dip2px(context,2));//指示器高度
+                linePagerIndicator.setLineWidth(UIUtil.dip2px(context,30));//指示器宽度
+                linePagerIndicator.setRoundRadius(UIUtil.dip2px(context,2));//圆角
+
+                //设置开始插值器  传入一个加速插值器对象
+                linePagerIndicator.setStartInterpolator(new AccelerateInterpolator());
+                //设置结束插值器  传入一个减速插值器对象
+                linePagerIndicator.setEndInterpolator(new DecelerateInterpolator(2.0f));
                 return linePagerIndicator;
             }
         });
